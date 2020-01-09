@@ -6,10 +6,12 @@ let  myrequest = axios.create({
 
 
 myrequest.interceptors.request.use(function (config) {
+    console.log(111);
+    
     // Do something before request is sent
-    console.log(store.state.userToken.token);
+    console.log(store.state);
 
-    let userInfo = store.state.userToken
+    let userInfo = store.state
     if(userInfo && userInfo.token){
         console.log(1111);
         

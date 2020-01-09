@@ -56,8 +56,11 @@ export default {
                     try {
                         this.loading = true
                         let res = await loginAPI({ mobile: this.mobile, code: this.code })
+                        console.log(res);
+                        
                         this.$store.commit('setUserToken', res)
                         this.loading = false
+                        
                         this.$router.push('/home')
                         // loginAPI({ mobile: this.mobile, code: this.code }).then(res => {
                         //     // setToken(res.token)
