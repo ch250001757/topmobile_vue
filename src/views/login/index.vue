@@ -56,12 +56,13 @@ export default {
                     try {
                         this.loading = true
                         let res = await loginAPI({ mobile: this.mobile, code: this.code })
-                        console.log(res);
-                        
                         this.$store.commit('setUserToken', res)
                         this.loading = false
-                        
-                        this.$router.push('/home')
+                        if (localStorage.getItem("backrouter") && localStorage.getItem("backrouter").indexOf('list') != -1) {
+                            this.$router.back()
+                        } else {
+                            this.$router.push('/home')
+                        }
                         // loginAPI({ mobile: this.mobile, code: this.code }).then(res => {
                         //     // setToken(res.token)
                         //     // 用vuex管理登录数据
@@ -75,14 +76,19 @@ export default {
                     }
                 }
             })
-        }
+        },
+    },
+    // 存储从list页面跳转
+    beforeRouteEnter(to, from, next) {
+        localStorage.setItem("backrouter", from.path);
+        next()
     }
 }
 </script>
 
 <style lang="less" scoped>
 .login {
-    margin-top: 46px;
+  margin-top: 46px;
 }
 .van-button {
   width: 100%;

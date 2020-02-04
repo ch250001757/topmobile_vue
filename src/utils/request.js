@@ -1,24 +1,17 @@
 import axios from 'axios'
 import store from '@/store'
+
 let  myrequest = axios.create({
     baseURL: 'http://ttapi.research.itcast.cn/app/',
 });
 
-
 myrequest.interceptors.request.use(function (config) {
-    console.log(111);
-    
     // Do something before request is sent
-    console.log(store.state);
-
-    let userInfo = store.state
+    let userInfo = store.state.userToken
     if(userInfo && userInfo.token){
-        console.log(1111);
-        
+        // console.log(userInfo);
         config.headers.Authorization = `Bearer ${userInfo.token}`
-    }
-    console.log(config);
-    
+    }  
     return config;
 }, function (error) {
     // Do something with request error
