@@ -50,6 +50,14 @@ const routes = [{
     path: '/detail/:art_id',
     component: () => import('@/views/detail')
   },
+  {
+    path: '/gundong',
+    component: () => import('@/views/test/gundongT')
+  },
+  {
+    path: '/qrcode',
+    component: () => import('@/views/test/qrcode')
+  },
 
 ]
 

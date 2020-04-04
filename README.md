@@ -20,7 +20,15 @@
 
 - 创建个远程分支与本地连接
 
-### 3.使用技术
+### 3.vue一些
+
+v-model一些拆解触发,
+
+sync使用
+
+如::active.sync = "active" this.$emit('update:active', 111)
+
+watch使用, key联想数据, 并加一些防抖
 
 
 
