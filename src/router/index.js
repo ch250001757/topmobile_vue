@@ -54,6 +54,10 @@ const routes = [{
     path: '/gundong',
     component: () => import('@/views/test/gundongT')
   },
+  {
+    path: '/qrcode',
+    component: () => import('@/views/test/qrcode')
+  },
 
 ]
 
